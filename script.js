@@ -1,74 +1,164 @@
-const ramos = {
-  "Álgebra": [],
+// Estructura organizada por año y semestre
+const estructura = {
+  "Primer Año": {
+    "I semestre": [
+      "Álgebra",
+      "Cálculo I",
+      "Comunicación en ingeniería",
+      "Introducción en ingeniería",
+      "Inglés I"
+    ],
+    "II semestre": [
+      "Álgebra lineal",
+      "Cálculo II",
+      "Química",
+      "Computación I",
+      "Inglés II"
+    ]
+  },
+  "Segundo Año": {
+    "I semestre": [
+      "Probabilidad y estadística",
+      "Cálculo III",
+      "Física I",
+      "Computación II",
+      "Inglés III"
+    ],
+    "II semestre": [
+      "Análisis Multivariado",
+      "Ecuaciones Diferenciales",
+      "Física II"
+    ],
+    "Módulo Integrador de Ciencias Básicas": [
+      "Modulo Integrador de Ciencias Básicas"
+    ]
+  },
+  "Tercer Año": {
+    "I semestre": [
+      "Modelamiento Matemático y estocástico",
+      "Diseño Industrial",
+      "Termodinámica",
+      "Administración y RRHH",
+      "Introducción a la Fe"
+    ],
+    "II semestre": [
+      "Logística",
+      "Electricidad Industrial y Automatización",
+      "Contabilidad y Finanzas",
+      "Economía",
+      "Base de Datos",
+      "Ética Cristiana"
+    ]
+  },
+  "Cuarto Año": {
+    "I semestre": [
+      "Investigación de Operaciones",
+      "Procesos Industriales",
+      "Emprendimiento y Creación Empresas",
+      "Ingeniería Económica",
+      "Metodología Investigación"
+    ],
+    "II semestre": [
+      "Gestión de Operaciones",
+      "Control de Gestión",
+      "Desarrollo Personal y Liderazgo",
+      "Creatividad Prototipaje y Negocios",
+      "Módulo Integrador Licenciatura",
+      "Certificación I"
+    ]
+  },
+  "Quinto Año": {
+    "I semestre": [
+      "Optimización",
+      "Gestión Análisis Información",
+      "Formalización y Evaluación de Proyectos",
+      "Propiedad Intelectual",
+      "Marketing Estratégico",
+      "Certificación II"
+    ],
+    "II semestre": [
+      "Gestión y Calidad de Productos",
+      "Electivo Evaluación de Proyectos",
+      "Plan Estratégico y Gestión de Negocios",
+      "Gestión Proyectos I+D+i+e",
+      "Inteligencia, Competitividad",
+      "Certificación III"
+    ]
+  },
+  "Sexto Año": {
+    "I semestre": [
+      "Electivo Gestión de Operaciones y Procesos Industriales",
+      "Electivo Gestión de Negocios",
+      "Modulo Integrador formación Profesional"
+    ]
+  }
+};
+
+// Requisitos para cada ramo
+const requisitos = {
   "Álgebra lineal": ["Álgebra"],
-  "Cálculo I": [],
   "Cálculo II": ["Cálculo I"],
-  "Cálculo III": ["Álgebra lineal", "Cálculo II"],
-  "Comunicación en ingeniería": [],
-  "Introducción en ingeniería": [],
-  "Química": [],
-  "Computación I": [],
-  "Computación II": ["Computación I"],
+  "Física I": ["Cálculo I"],
+  "Inglés II": ["Inglés I"],
+  "Cálculo III": ["Cálculo II", "Álgebra lineal"],
+  "Inglés III": ["Inglés II"],
   "Probabilidad y estadística": ["Álgebra lineal"],
   "Análisis Multivariado": ["Probabilidad y estadística"],
   "Ecuaciones Diferenciales": ["Cálculo III"],
-  "Física I": ["Cálculo I"],
   "Física II": ["Física I"],
   "Termodinámica": ["Física II"],
-  "Inglés I": [],
-  "Inglés II": ["Inglés I"],
-  "Inglés III": ["Inglés II"],
-  "Modelamiento Matemático y estocástico": ["Análisis Multivariado"],
-  "Diseño Industrial": [],
-  "Administración y RRHH": [],
-  "Introducción a la Fe": [],
-  "Logística": ["Modelamiento Matemático y estocástico"],
-  "Electricidad Industrial y Automatización": ["Diseño Industrial"],
-  "Contabilidad y Finanzas": [],
-  "Economía": ["Administración y RRHH"],
+  "Computación II": ["Computación I"],
   "Base de Datos": ["Computación II"],
-  "Ética Cristiana": [],
+  "Modelamiento Matemático y estocástico": ["Análisis Multivariado"],
+  "Logística": ["Modelamiento Matemático y estocástico"],
   "Investigación de Operaciones": ["Modelamiento Matemático y estocástico"],
-  "Procesos Industriales": ["Diseño Industrial"],
+  "Electricidad Industrial y Automatización": ["Diseño Industrial"],
+  "Economía": ["Administración y RRHH"],
   "Ingeniería Económica": ["Economía"],
-  "Emprendimiento y Creación Empresas": [],
-  "Metodología Investigación": [],
   "Gestión de Operaciones": ["Investigación de Operaciones"],
   "Control de Gestión": ["Procesos Industriales"],
-  "Desarrollo Personal y Liderazgo": [],
-  "Creatividad Prototipaje y Negocios": [],
   "Optimización": ["Gestión de Operaciones"],
   "Gestión Análisis Información": ["Control de Gestión"],
   "Formalización y Evaluación de Proyectos": ["Ingeniería Económica"],
-  "Propiedad Intelectual": [],
-  "Marketing Estratégico": [],
-  "Gestión y Calidad de Productos": ["Procesos Industriales"],
-  "Electivo Evaluación de Proyectos": [],
-  "Plan Estratégico y Gestión de Negocios": [],
   "Gestión Proyectos I+D+i+e": ["Propiedad Intelectual"],
-  "Inteligencia, Competitividad": [],
-  "Electivo Gestión de Operaciones y Procesos Industriales": [],
-  "Electivo Gestión de Negocios": [],
-  "Modulo Integrador formación Profesional": [],
-  "Certificación I": [],
-  "Certificación II": [],
-  "Certificación III": [],
-  "Módulo Integrador Licenciatura": [],
-  "Modulo Integrador de Ciencias Básicas": []
+  "Gestión y Calidad de Productos": ["Procesos Industriales"]
 };
 
 const estado = {}; // guarda qué ramos están aprobados
 
 function crearMalla() {
   const contenedor = document.getElementById("malla");
-  for (let nombre in ramos) {
-    const div = document.createElement("div");
-    div.className = "ramo bloqueado";
-    div.innerText = nombre;
-    div.id = nombre;
-    div.addEventListener("click", () => aprobar(nombre));
-    contenedor.appendChild(div);
+
+  for (let año in estructura) {
+    const divAño = document.createElement("div");
+    divAño.className = "año";
+    divAño.innerHTML = `<h2>${año}</h2>`;
+
+    const semestres = estructura[año];
+    for (let semestre in semestres) {
+      const divSem = document.createElement("div");
+      divSem.className = "semestre";
+      divSem.innerHTML = `<h3>${semestre}</h3>`;
+
+      const divRamos = document.createElement("div");
+      divRamos.className = "ramos";
+
+      semestres[semestre].forEach(ramo => {
+        const div = document.createElement("div");
+        div.className = "ramo bloqueado";
+        div.id = ramo;
+        div.innerText = ramo;
+        div.addEventListener("click", () => aprobar(ramo));
+        divRamos.appendChild(div);
+      });
+
+      divSem.appendChild(divRamos);
+      divAño.appendChild(divSem);
+    }
+
+    contenedor.appendChild(divAño);
   }
+
   actualizarMalla();
 }
 
@@ -78,19 +168,20 @@ function aprobar(nombre) {
 }
 
 function actualizarMalla() {
-  for (let nombre in ramos) {
-    const elem = document.getElementById(nombre);
-    const requisitos = ramos[nombre];
-    const cumplidos = requisitos.every(r => estado[r]);
-    
+  const todos = document.querySelectorAll(".ramo");
+  todos.forEach(el => {
+    const nombre = el.id;
+    const req = requisitos[nombre] || [];
+    const habilitado = req.every(r => estado[r]);
+
     if (estado[nombre]) {
-      elem.className = "ramo aprobado";
-    } else if (cumplidos) {
-      elem.className = "ramo";
+      el.className = "ramo aprobado";
+    } else if (habilitado || req.length === 0) {
+      el.className = "ramo";
     } else {
-      elem.className = "ramo bloqueado";
+      el.className = "ramo bloqueado";
     }
-  }
+  });
 }
 
 window.onload = crearMalla;
