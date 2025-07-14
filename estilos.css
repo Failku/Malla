@@ -10,11 +10,28 @@ h1 {
   color: #d63384;
 }
 
-.malla {
+#malla {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.año {
+  border-left: 5px solid #d63384;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.semestre {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.ramos {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
+  margin-top: 5px;
 }
 
 .ramo {
@@ -22,7 +39,7 @@ h1 {
   border: 2px solid #d63384;
   border-radius: 10px;
   padding: 10px;
-  width: 200px;
+  width: 180px;
   text-align: center;
   cursor: pointer;
   opacity: 0.5;
